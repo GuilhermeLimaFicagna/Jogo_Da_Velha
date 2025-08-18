@@ -41,17 +41,18 @@ int vezJogador = 0;
 while (true)
 {
     // Printando a matriz
-    for (int l = 0; l < matriz.GetLength(0); l += 1)
+    for (int l = 0; l < matriz.GetLength(0); l++)
     {
         Console.WriteLine("  ___    ___    ___");
-        for (int c = 0; c < matriz.GetLength(1); c += 1)
+        for (int c = 0; c < matriz.GetLength(1); c++)
         {
             Console.Write(" | " + matriz[l, c] + " | ");
-            Thread.Sleep(100);
+            Thread.Sleep(50); // só para efeito visual
         }
         Console.WriteLine();
     }
-    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯  ");
+    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
     // Fala de quem é a vez
     if (vezJogador == 0)
     {
@@ -79,7 +80,7 @@ while (true)
 
     // Verifica se está entre 1 e 9 
     int verifica = Convert.ToInt32(jogadaDoJogador);
-    if (verifica < 1 || verifica > 9) 
+    if (verifica < 1 || verifica > 9)
     {
         Console.WriteLine("Número invalido.");
         continue;
@@ -89,7 +90,7 @@ while (true)
     if (jogadaDoJogador == "1")
     {
         // Verificação da casa no tabuleiro
-        if (matriz[0,0] != "1")
+        if (matriz[0, 0] != "1")
         {
             Console.WriteLine("Um jogador ja marcou está casa");
             continue;
@@ -294,6 +295,34 @@ while (true)
         {
             Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
         }
+        else
+        {
+            Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+        }
+
+    }
+
+    // Primeiro caso da linha(4,5 e 6)
+    if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X" || matriz[1, 0] == "O" && matriz[1, 1] == "O" && matriz[1, 2] == "O")
+    {
+        if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
+        {
+            Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+        }
+        else
+        {
+            Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+        }
+
+    }
+    
+            // Primeiro caso da linha(7,8 e 9)
+    if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X" || matriz[2, 0] == "O" && matriz[2, 1] == "O" && matriz[2, 2] == "O")
+    {
+        if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
+        {
+            Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+        }
         else 
         {
             Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
@@ -301,5 +330,4 @@ while (true)
        
     }
 }
-
 
