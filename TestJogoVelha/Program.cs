@@ -41,17 +41,18 @@ int vezJogador = 0;
 while (true)
 {
     // Printando a matriz
-    for (int l = 0; l < matriz.GetLength(0); l += 1)
+    for (int l = 0; l < matriz.GetLength(0); l++)
     {
         Console.WriteLine("  ___    ___    ___");
-        for (int c = 0; c < matriz.GetLength(1); c += 1)
+        for (int c = 0; c < matriz.GetLength(1); c++)
         {
             Console.Write(" | " + matriz[l, c] + " | ");
-            Thread.Sleep(100);
+            Thread.Sleep(50); // só para efeito visual
         }
         Console.WriteLine();
     }
-    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯  ");
+    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
     // Fala de quem é a vez
     if (vezJogador == 0)
     {
