@@ -3,27 +3,25 @@ using System.Reflection.Metadata;
 using System.Threading;
 using System.Linq;
 
-String[,] matriz = new String[3,3]; // Matriz que ira ser o tabuleiro com as cordenadas
+String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
 // Númerando a Matriz
 int n = 0;
-for (int l = 0; l < matriz.GetLength(0); l+=1) // .GetLength(0) pega a Quantidade de Linhas
+for (int l = 0; l < matriz.GetLength(0); l++) // .GetLength(0) pega a Quantidade de Linhas
 {
-    for (int c = 0; c < matriz.GetLength(1); c+=1) // .GetLength(0) pega a Quantidade de Colunas
+    for (int c = 0; c < matriz.GetLength(1); c++) // .GetLength(0) pega a Quantidade de Colunas
     {
         matriz[l, c] = Convert.ToString(n += 1);
     }
 }
 
 //Inclusão da opção de escolher o modo de jogo, sendo 1 para Jogador x Jogador e 2 para Jogador x Máquina
-Console.WriteLine("Selecione 1 para dois jogadores, e 2 para jogador x máquina."); 
+Console.WriteLine("Selecione 1 para dois jogadores, e 2 para jogador x máquina.");
 string op1 = Console.ReadLine();
 
 //Jogador x Jogador
 if (op1 == "1")
 {
-
-
     // Começo do jogo de dois jogadores
 
     Console.WriteLine("JOGO DA VELHA ENTRE DOIS JOGADORES");
@@ -47,8 +45,8 @@ if (op1 == "1")
 
     // Método usado para ver de quem é a vez
     int vezJogador = 0;
-
-    while (true)
+    bool vencedor = false;
+    while (!vencedor)
     {
         // Printando a matriz
         for (int l = 0; l < matriz.GetLength(0); l++)
@@ -79,6 +77,7 @@ if (op1 == "1")
         scannerJogada = Console.ReadLine();
         string jogadaDoJogador = scannerJogada; // Jogando scanner dentro da variavel.
 
+        // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
         // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
 
         // verifica se não é número
@@ -296,7 +295,7 @@ if (op1 == "1")
 
             - Verticais: 2 verticais
 
-        */
+    */
 
         // Primeiro caso da linha(1,2 e 3)
         if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
@@ -342,18 +341,18 @@ if (op1 == "1")
     }
 
     // Primeiro caso de coluna(1,2 e 3)
-        // if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
-        // {
-        //     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
-        //     {
-        //         Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-        //     }
+    // if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
+    // {
+    //     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+    //     {
+    //         Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+    //     }
 
-        // }
+    // }
 }
 //Jogador x Máquina (montar código)
 else
