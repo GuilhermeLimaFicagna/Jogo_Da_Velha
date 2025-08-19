@@ -303,10 +303,14 @@ if (op1 == "1")
             if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
             {
                 Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+                vencedor = true;
+                continue;
             }
             else
             {
                 Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+                vencedor = true;
+                continue;
             }
 
         }
