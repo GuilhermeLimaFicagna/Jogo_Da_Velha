@@ -3,13 +3,13 @@ using System.Reflection.Metadata;
 using System.Threading;
 using System.Linq;
 
-String[,] matriz = new String[3,3]; // Matriz que ira ser o tabuleiro com as cordenadas
+String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
 // Númerando a Matriz
 int n = 0;
-for (int l = 0; l < matriz.GetLength(0); l+=1) // .GetLength(0) pega a Quantidade de Linhas
+for (int l = 0; l < matriz.GetLength(0); l++) // .GetLength(0) pega a Quantidade de Linhas
 {
-    for (int c = 0; c < matriz.GetLength(1); c+=1) // .GetLength(0) pega a Quantidade de Colunas
+    for (int c = 0; c < matriz.GetLength(1); c++) // .GetLength(0) pega a Quantidade de Colunas
     {
         matriz[l, c] = Convert.ToString(n += 1);
     }
@@ -37,8 +37,8 @@ if (primeiroJogador == "" || segundoJogador == "")
 
 // Método usado para ver de quem é a vez
 int vezJogador = 0;
-
-while (true)
+bool vencedor = false;
+while (!vencedor)
 {
     // Printando a matriz
     for (int l = 0; l < matriz.GetLength(0); l++)
@@ -80,7 +80,7 @@ while (true)
 
     // Verifica se está entre 1 e 9 
     int verifica = Convert.ToInt32(jogadaDoJogador);
-    if (verifica < 1 || verifica > 9) 
+    if (verifica < 1 || verifica > 9)
     {
         Console.WriteLine("Número invalido.");
         continue;
@@ -90,7 +90,7 @@ while (true)
     if (jogadaDoJogador == "1")
     {
         // Verificação da casa no tabuleiro
-        if (matriz[0,0] != "1")
+        if (matriz[0, 0] != "1")
         {
             Console.WriteLine("Um jogador ja marcou está casa");
             continue;
@@ -287,20 +287,20 @@ while (true)
         - Verticais: 2 verticais
 
     */
-
     // Primeiro caso da linha(1,2 e 3)
     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
     {
         if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
         {
             Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+            vencedor = true;
         }
-        else 
+        else
         {
             Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+            vencedor = true;
         }
-       
-    }
+    };
 }
 
 //Teste
