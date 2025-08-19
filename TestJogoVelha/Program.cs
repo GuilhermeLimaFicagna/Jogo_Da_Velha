@@ -3,303 +3,363 @@ using System.Reflection.Metadata;
 using System.Threading;
 using System.Linq;
 
-String[,] matriz = new String[3,3]; // Matriz que ira ser o tabuleiro com as cordenadas
+String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
 // Númerando a Matriz
 int n = 0;
-for (int l = 0; l < matriz.GetLength(0); l+=1) // .GetLength(0) pega a Quantidade de Linhas
+for (int l = 0; l < matriz.GetLength(0); l++) // .GetLength(0) pega a Quantidade de Linhas
 {
-    for (int c = 0; c < matriz.GetLength(1); c+=1) // .GetLength(0) pega a Quantidade de Colunas
+    for (int c = 0; c < matriz.GetLength(1); c++) // .GetLength(0) pega a Quantidade de Colunas
     {
         matriz[l, c] = Convert.ToString(n += 1);
     }
 }
-// Começo do jogo de dois jogadores
 
-Console.WriteLine("JOGO DA VELHA ENTRE DOIS JOGADORES");
+//Inclusão da opção de escolher o modo de jogo, sendo 1 para Jogador x Jogador e 2 para Jogador x Máquina
+Console.WriteLine("Selecione 1 para dois jogadores, e 2 para jogador x máquina.");
+string op1 = Console.ReadLine();
 
-// Jogador vs Jogador
-String primeiroJogador = "";
-String segundoJogador = "";
-
-if (primeiroJogador == "" || segundoJogador == "")
+//Jogador x Jogador
+if (op1 == "1")
 {
-    string scannerNome;
-    // Entrada primeiro jogador
-    Console.Write("Digite o nome do primeiro jogador(X): ");
-    scannerNome = Console.ReadLine();
-    primeiroJogador = scannerNome;
-    // Entrada primeiro jogador
-    Console.Write("Digite o nome do segundo jogador(O): ");
-    scannerNome = Console.ReadLine();
-    segundoJogador = scannerNome;
-}
+    // Começo do jogo de dois jogadores
 
-// Método usado para ver de quem é a vez
-int vezJogador = 0;
+    Console.WriteLine("JOGO DA VELHA ENTRE DOIS JOGADORES");
 
-while (true)
-{
-    // Printando a matriz
-    for (int l = 0; l < matriz.GetLength(0); l += 1)
+    // Jogador vs Jogador
+    String primeiroJogador = "";
+    String segundoJogador = "";
+
+    if (primeiroJogador == "" || segundoJogador == "")
     {
-        Console.WriteLine("  ___    ___    ___");
-        for (int c = 0; c < matriz.GetLength(1); c += 1)
+        string scannerNome;
+        // Entrada primeiro jogador
+        Console.Write("Digite o nome do primeiro jogador(X): ");
+        scannerNome = Console.ReadLine();
+        primeiroJogador = scannerNome;
+        // Entrada primeiro jogador
+        Console.Write("Digite o nome do segundo jogador(O): ");
+        scannerNome = Console.ReadLine();
+        segundoJogador = scannerNome;
+    }
+
+    // Método usado para ver de quem é a vez
+    int vezJogador = 0;
+    bool vencedor = false;
+    while (!vencedor)
+    {
+        // Printando a matriz
+        for (int l = 0; l < matriz.GetLength(0); l++)
         {
-            Console.Write(" | " + matriz[l, c] + " | ");
-            Thread.Sleep(100);
+            Console.WriteLine("  ___    ___    ___");
+            for (int c = 0; c < matriz.GetLength(1); c++)
+            {
+                Console.Write(" | " + matriz[l, c] + " | ");
+                Thread.Sleep(50); // só para efeito visual
+            }
+            Console.WriteLine();
         }
-        Console.WriteLine();
-    }
-    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯  ");
-    // Fala de quem é a vez
-    if (vezJogador == 0)
-    {
-        Console.WriteLine("Vez do Jogador: " + primeiroJogador);
-    }
-    else
-    {
-        Console.WriteLine("Vez do Jogador: " + segundoJogador);
-    }
+        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
-    // Entrada de dados dos jogadores para a jogada.
-    String scannerJogada;
-    Console.Write("Digite um número de 1 a 9: ");
-    scannerJogada = Console.ReadLine();
-    string jogadaDoJogador = scannerJogada; // Jogando scanner dentro da variavel.
-
-    // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
-
-    // verifica se não é número
-    if (jogadaDoJogador.Any(char.IsLetter))
-    {
-        Console.WriteLine("Não é Número.");
-        continue;
-    }
-
-    // Verifica se está entre 1 e 9 
-    int verifica = Convert.ToInt32(jogadaDoJogador);
-    if (verifica < 1 || verifica > 9) 
-    {
-        Console.WriteLine("Número invalido.");
-        continue;
-    }
-
-    // Coloca a peça no determinado lugar do tabuleiro
-    if (jogadaDoJogador == "1")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[0,0] != "1")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
-
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+        // Fala de quem é a vez
         if (vezJogador == 0)
         {
-            matriz[0, 0] = "X";
-            vezJogador++;
+            Console.WriteLine("Vez do Jogador: " + primeiroJogador);
         }
         else
         {
-            matriz[0, 0] = "O";
-            vezJogador--;
+            Console.WriteLine("Vez do Jogador: " + segundoJogador);
         }
-    }
-    else if (jogadaDoJogador == "2")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[0, 1] != "2")
+
+        // Entrada de dados dos jogadores para a jogada.
+        String scannerJogada;
+        Console.Write("Digite um número de 1 a 9: ");
+        scannerJogada = Console.ReadLine();
+        string jogadaDoJogador = scannerJogada; // Jogando scanner dentro da variavel.
+
+        // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
+        // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
+
+        // verifica se não é número
+        if (jogadaDoJogador.Any(char.IsLetter))
         {
-            Console.WriteLine("Um jogador ja marcou está casa");
+            Console.WriteLine("Não é Número.");
             continue;
         }
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
+        // Verifica se está entre 1 e 9 
+        int verifica = Convert.ToInt32(jogadaDoJogador);
+        if (verifica < 1 || verifica > 9)
         {
-            matriz[0, 1] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[0, 1] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "3")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[0, 2] != "3")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
+            Console.WriteLine("Número invalido.");
             continue;
         }
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
+        // Coloca a peça no determinado lugar do tabuleiro
+        if (jogadaDoJogador == "1")
         {
-            matriz[0, 2] = "X";
-            vezJogador++;
+            // Verificação da casa no tabuleiro
+            if (matriz[0, 0] != "1")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[0, 0] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[0, 0] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "2")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[0, 1] != "2")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[0, 1] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[0, 1] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "3")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[0, 2] != "3")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[0, 2] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[0, 2] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "4")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[1, 0] != "4")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[1, 0] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[1, 0] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "5")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[1, 1] != "5")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[1, 1] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[1, 1] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "6")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[1, 2] != "6")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[1, 2] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[1, 2] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "7")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[2, 0] != "7")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[2, 0] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[2, 0] = "O";
+                vezJogador--;
+            }
+        }
+        else if (jogadaDoJogador == "8")
+        {
+            // Verificação da casa no tabuleiro
+            if (matriz[2, 1] != "8")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[2, 1] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[2, 1] = "O";
+                vezJogador--;
+            }
         }
         else
         {
-            matriz[0, 2] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "4")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[1, 0] != "4")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
+            // Verificação da casa no tabuleiro
+            if (matriz[2, 2] != "9")
+            {
+                Console.WriteLine("Um jogador ja marcou está casa");
+                continue;
+            }
+
+            // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+            if (vezJogador == 0)
+            {
+                matriz[2, 2] = "X";
+                vezJogador++;
+            }
+            else
+            {
+                matriz[2, 2] = "O";
+                vezJogador--;
+            }
         }
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[1, 0] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[1, 0] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "5")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[1, 1] != "5")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
+        /*
+        Para poder saber se o "jogador X" ou o "jogador O" fez um ponto podemos usar if e else para analisar os 8 posiveis casos de pontuação, sendo eles:
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[1, 1] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[1, 1] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "6")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[1, 2] != "6")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
+            - Linhas: 3 linhas
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[1, 2] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[1, 2] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "7")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[2, 0] != "7")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
+            - colunas: 3 colunas
 
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[2, 0] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[2, 0] = "O";
-            vezJogador--;
-        }
-    }
-    else if (jogadaDoJogador == "8")
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[2, 1] != "8")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
-
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[2, 1] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[2, 1] = "O";
-            vezJogador--;
-        }
-    }
-    else
-    {
-        // Verificação da casa no tabuleiro
-        if (matriz[2, 2] != "9")
-        {
-            Console.WriteLine("Um jogador ja marcou está casa");
-            continue;
-        }
-
-        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-        if (vezJogador == 0)
-        {
-            matriz[2, 2] = "X";
-            vezJogador++;
-        }
-        else
-        {
-            matriz[2, 2] = "O";
-            vezJogador--;
-        }
-    }
-
-    /*
-    Para poder saber se o "jogador X" ou o "jogador O" fez um ponto podemos usar if e else para analisar os 8 posiveis casos de pontuação, sendo eles:
-
-        - Linhas: 3 linhas
-
-        - colunas: 3 colunas
-
-        - Verticais: 2 verticais
+            - Verticais: 2 verticais
 
     */
 
-    // Primeiro caso da linha(1,2 e 3)
-    if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
-    {
-        if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+        // Primeiro caso da linha(1,2 e 3)
+        if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
         {
-            Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-        }
-        else 
-        {
-            Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-        }
-       
-    }
-}
+            if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+            {
+                Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+                vencedor = true;
+                continue;
+            }
+            else
+            {
+                Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+                vencedor = true;
+                continue;
+            }
 
-//Teste
+        }
+
+        // Primeiro caso da linha(4,5 e 6)
+        if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X" || matriz[1, 0] == "O" && matriz[1, 1] == "O" && matriz[1, 2] == "O")
+        {
+            if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
+            {
+                Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+            }
+            else
+            {
+                Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+            }
+
+        }
+
+        // Primeiro caso da linha(7,8 e 9)
+        if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X" || matriz[2, 0] == "O" && matriz[2, 1] == "O" && matriz[2, 2] == "O")
+        {
+            if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
+            {
+                Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+            }
+            else
+            {
+                Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+            }
+
+        }
+    }
+
+    // Primeiro caso de coluna(1,2 e 3)
+    // if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
+    // {
+    //     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+    //     {
+    //         Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+    //     }
+
+    // }
+}
+//Jogador x Máquina (montar código)
+else
+{
+    Console.WriteLine("Em Construção!");
+}
