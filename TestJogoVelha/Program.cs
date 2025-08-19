@@ -340,6 +340,20 @@ if (op1 == "1")
 
         }
     }
+
+    // Primeiro caso de coluna(1,2 e 3)
+        // if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
+        // {
+        //     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+        //     {
+        //         Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+        //     }
+
+        // }
 }
 //Jogador x Máquina (montar código)
 else
