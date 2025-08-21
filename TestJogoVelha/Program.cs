@@ -1,4 +1,4 @@
-﻿// Importações do código
+// Importações do código
 using System.Reflection.Metadata;
 using System.Threading;
 using System.Linq;
@@ -311,7 +311,7 @@ if (op1 == "1")
 
         }
 
-        // Primeiro caso da linha(4,5 e 6)
+        // Segundo caso da linha(4,5 e 6)
         if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X" || matriz[1, 0] == "O" && matriz[1, 1] == "O" && matriz[1, 2] == "O")
         {
             if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
@@ -325,7 +325,7 @@ if (op1 == "1")
 
         }
 
-        // Primeiro caso da linha(7,8 e 9)
+        // Terceiro caso da linha(7,8 e 9)
         if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X" || matriz[2, 0] == "O" && matriz[2, 1] == "O" && matriz[2, 2] == "O")
         {
             if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
@@ -338,24 +338,86 @@ if (op1 == "1")
             }
 
         }
+    
+    // Primeiro caso de coluna(1,4 e 7)
+    if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X" || matriz[0, 0] == "O" && matriz[1, 0] == "O" && matriz[2, 0] == "O")
+    {
+        if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X")
+        {
+            Console.WriteLine("o vencedor é o jogador: " + primeiroJogador);
+        }
+        else
+        {
+            Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
+        }
+
     }
 
-    // Primeiro caso de coluna(1,2 e 3)
-    // if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
-    // {
-    //     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
-    //     {
-    //         Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-    //     }
 
-    // }
+
+
+    // Segundo caso de coluna(2,5 e 8)
+    if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X" || matriz[0, 1] == "O" && matriz[1, 1] == "O" && matriz[2, 1] == "O")
+    {
+        if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X")
+        {
+            Console.WriteLine("o vencedor é o jogador: " + primeiroJogador);
+        }
+        else
+        {
+            Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
+        }
+
+    }
+
+
+
+    // Primeiro caso de coluna(3,6 e 9)
+    if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X" || matriz[0,2] == "O" && matriz[1,2]== "O" && matriz[2, 2] == "O")
+    {
+        if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X")
+        {
+            Console.WriteLine("o vencedor é o jogador: " + primeiroJogador);
+        }
+        else
+        {
+            Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
+        }
+
+    }
+
+        // Primeiro caso de diagonal(1,5 e 9)
+        if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X" || matriz[0, 0] == "O" && matriz[1, 1] == "O" && matriz[2, 2] == "O")
+        {
+            if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+            {
+                Console.WriteLine("o vencedor é o jogador: " + primeiroJogador);
+            }
+            else
+            {
+                Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
+            }
+
+        }
+
+        // Segundo caso de diagonal(3,5 e 7)
+        if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X" || matriz[0, 2] == "O" && matriz[1, 1] == "O" && matriz[2, 0] == "O")
+        {
+            if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
+            {
+                Console.WriteLine("o vencedor é o jogador: " + primeiroJogador);
+            }
+            else
+            {
+                Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
+            }
+
+        }
+
+    }
 }
 //Jogador x Máquina (montar código)
 else
 {
-    Console.WriteLine("Em Construção!");
+    Console.WriteLine("EM CONSTRUÇÃO!");
 }
