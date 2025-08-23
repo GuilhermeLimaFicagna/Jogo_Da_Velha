@@ -52,7 +52,8 @@ while (true)
         // Método usado para ver de quem é a vez
         int vezJogador = 0;
         bool vencedor = false;
-        while (!vencedor)
+        int contagemRodada = 0;
+        while (!vencedor || contagemRodada > 8)
         {
             // Printando a matriz
             for (int l = 0; l < matriz.GetLength(0); l++)
@@ -121,6 +122,7 @@ while (true)
                     matriz[0, 0] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "2")
             {
@@ -142,6 +144,7 @@ while (true)
                     matriz[0, 1] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "3")
             {
@@ -163,6 +166,7 @@ while (true)
                     matriz[0, 2] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "4")
             {
@@ -184,6 +188,7 @@ while (true)
                     matriz[1, 0] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "5")
             {
@@ -205,6 +210,7 @@ while (true)
                     matriz[1, 1] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "6")
             {
@@ -226,6 +232,7 @@ while (true)
                     matriz[1, 2] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "7")
             {
@@ -247,6 +254,7 @@ while (true)
                     matriz[2, 0] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else if (jogadaDoJogador == "8")
             {
@@ -268,6 +276,7 @@ while (true)
                     matriz[2, 1] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
             else
             {
@@ -289,6 +298,7 @@ while (true)
                     matriz[2, 2] = "O";
                     vezJogador--;
                 }
+                contagemRodada++;
             }
 
             /*
@@ -318,7 +328,8 @@ while (true)
                     {
                         continue;
                     }
-                    else { // Caso queira voltar ao menu
+                    else
+                    { // Caso queira voltar ao menu
                         vencedor = true;
                     }
 
@@ -428,6 +439,12 @@ while (true)
                     Console.WriteLine("o vencedor é o jogador: " + segundoJogador);
                 }
 
+            }
+
+            if (contagemRodada > 8)
+            {
+                Console.WriteLine("O jogo encerrou em Velha! Não há vencedores.");
+                break;
             }
         }
     }
