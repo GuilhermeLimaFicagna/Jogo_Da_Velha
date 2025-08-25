@@ -1,5 +1,11 @@
-﻿// Importações do código
-using System.Reflection.Metadata;
+﻿/* 
+Grupo:
+  —  Eduardo Lopes Barros dos Santos - RA: 2025105015
+  —  Guilherme de Lima Ficagna - RA: 2025105145
+  —  Cleberson Cesar Bueno dos Santos - RA: 2025105040
+*/
+
+// Importações do código
 using System.Threading;
 using System.Linq;
 
