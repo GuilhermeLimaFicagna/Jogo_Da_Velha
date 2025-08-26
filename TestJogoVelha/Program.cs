@@ -893,6 +893,7 @@ while (true)
 
             // Segundo caso de diagonal(3,5 e 7)
             if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X" || matriz[0, 2] == "O" && matriz[1, 1] == "O" && matriz[2, 0] == "O")
+            {
                 if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
@@ -967,7 +968,8 @@ while (true)
                         vencedor = true;
                     }
                 }
-
+            }
+            // Caso de velha
             if (contagemRodada > 8)
             {
                 Console.WriteLine("O jogo terminou em velha!");
