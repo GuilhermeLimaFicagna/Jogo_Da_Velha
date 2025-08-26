@@ -21,11 +21,27 @@ for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantid
     }
 }
 
+// Lógica - Ranking with dicionary
+Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nome. Value guarda vitórias
+{
+    {"X", 0},
+    {"O", 0},
+    {"Maquina", 0 }
+};
+
+
 // Começo do menu
 while (true)
 {
     Console.WriteLine("JOGO DA VELHA EM C#");
     Console.WriteLine();
+
+    // Printa o ranking com os jogadores
+    Console.WriteLine("RANKING");
+    foreach (KeyValuePair<string, int> r in ranking)
+    {
+        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+    }
 
     // Opção de querer jogar ou não
     string scannerMenu;
@@ -63,10 +79,33 @@ while (true)
             Console.Write("Digite o nome do primeiro jogador(X): ");
             scannerNome = Console.ReadLine();
             primeiroJogador = scannerNome;
-            // Entrada primeiro jogador
+
+            // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
+            if (ranking.ContainsKey(primeiroJogador))
+            {
+                Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
+                Console.WriteLine();
+            }
+            else
+            {
+                ranking.Add(primeiroJogador, 0);
+            }
+
+            // Entrada segundo jogador
             Console.Write("Digite o nome do segundo jogador(O): ");
             scannerNome = Console.ReadLine();
             segundoJogador = scannerNome;
+
+            // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
+            if (ranking.ContainsKey(segundoJogador))
+            {
+                Console.WriteLine($"Bem vindo novamente {segundoJogador}. Você tem {ranking[segundoJogador]} vitórias");
+                Console.WriteLine();
+            }
+            else
+            {
+                ranking.Add(segundoJogador, 0);
+            }
         }
 
         // Método usado para ver de quem é a vez
@@ -341,6 +380,10 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    ranking[primeiroJogador] += 1;
+                    ranking["X"] += 1;
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -378,6 +421,10 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+
+                    // Soma pontuação no ranking
+                    ranking[segundoJogador] += 1;
+                    ranking["O"] += 1;
 
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
