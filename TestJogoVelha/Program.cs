@@ -117,19 +117,6 @@ while (true)
         int contagemRodada = 0;
         while (!vencedor || contagemRodada > 8)
         {
-            // Printando a matriz
-            for (int l = 0; l < matriz.GetLength(0); l++)
-            {
-                Console.WriteLine("  ___    ___    ___");
-                for (int c = 0; c < matriz.GetLength(1); c++)
-                {
-                    Console.Write(" | " + matriz[l, c] + " | ");
-                    //Thread.Sleep(50); // só para efeito visual
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
-
             // Fala de quem é a vez
             if (vezJogador == 0)
             {
@@ -362,6 +349,19 @@ while (true)
                 }
                 contagemRodada++;
             }
+            
+            // Printando a matriz
+            for (int l = 0; l < matriz.GetLength(0); l++)
+            {
+                Console.WriteLine("  ___    ___    ___");
+                for (int c = 0; c < matriz.GetLength(1); c++)
+                {
+                    Console.Write(" | " + matriz[l, c] + " | ");
+                    //Thread.Sleep(50); // só para efeito visual
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
             /*
             Para poder saber se o "jogador X" ou o "jogador O" fez um ponto podemos usar if e else para analisar os 8 posiveis casos de pontuação, sendo eles:
