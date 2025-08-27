@@ -26,7 +26,8 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
 {
     {"X", 0},
     {"O", 0},
-    {"Maquina", 0 }
+    {"Maquina", 0 },
+    {"Velha", 0}
 };
 
 
@@ -381,8 +382,22 @@ while (true)
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
                     // Soma pontuação no ranking
-                    ranking[primeiroJogador] += 1;
-                    ranking["X"] += 1;
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
 
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
@@ -399,6 +414,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -414,6 +430,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -423,8 +440,22 @@ while (true)
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
                     // Soma pontuação no ranking
-                    ranking[segundoJogador] += 1;
-                    ranking["O"] += 1;
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
 
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
@@ -441,6 +472,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -455,6 +487,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -469,6 +502,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -484,6 +535,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -498,6 +550,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -506,6 +559,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -521,6 +592,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -535,6 +607,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -549,6 +622,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -564,6 +655,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -578,6 +670,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -586,6 +679,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -601,6 +712,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -615,6 +727,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -629,6 +742,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -644,6 +775,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -658,6 +790,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -666,6 +799,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -681,6 +832,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -695,6 +847,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -708,6 +861,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -723,6 +894,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -737,6 +909,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -745,6 +918,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -760,6 +951,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -774,6 +966,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -787,6 +980,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -802,6 +1013,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -816,6 +1028,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -824,6 +1037,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -839,6 +1070,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -853,6 +1085,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -866,6 +1099,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -881,6 +1132,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -895,6 +1147,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -903,6 +1156,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -918,6 +1189,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -932,6 +1204,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -945,6 +1218,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -960,6 +1251,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -974,6 +1266,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
@@ -982,6 +1275,24 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
 
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                     scannerDecision = Console.ReadLine();
@@ -997,6 +1308,7 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
                     }
@@ -1011,15 +1323,28 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
                     }
                 }
             }
+
             // Caso de velha
             if (contagemRodada > 8)
             {
                 Console.WriteLine("O jogo terminou em velha!");
+
+                // Soma pontuação no ranking
+                ranking["Velha"] += 1;
+
+                // Printa o ranking com os jogadores
+                Console.WriteLine("RANKING");
+                foreach (KeyValuePair<string, int> r in ranking)
+                {
+                    Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                }
+
                 Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
                 scannerDecision = Console.ReadLine();
 
@@ -1034,6 +1359,7 @@ while (true)
                             matriz[l, c] = Convert.ToString(n += 1);
                         }
                     }
+                    Console.Clear(); // Limpa terminal
                     contagemRodada = 0;
                     continue;
                 }
@@ -1048,6 +1374,7 @@ while (true)
                             matriz[l, c] = Convert.ToString(n += 1);
                         }
                     }
+                    Console.Clear(); // Limpa terminal
                     contagemRodada = 0;
                     vencedor = true;
                 }
