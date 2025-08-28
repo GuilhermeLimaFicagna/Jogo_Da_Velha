@@ -108,7 +108,20 @@ while (true)
                 ranking.Add(segundoJogador, 0);
             }
         }
-
+      
+        // Printando a matriz
+        for (int l = 0; l < matriz.GetLength(0); l++)
+        {
+            Console.WriteLine("  ___    ___    ___");
+            for (int c = 0; c < matriz.GetLength(1); c++)
+            {
+                Console.Write(" | " + matriz[l, c] + " | ");
+                //Thread.Sleep(50); // só para efeito visual
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+    
         // Método usado para ver de quem é a vez
         int vezJogador = 0;
         // Lógica para voltar ao menu ou continuar jogando
