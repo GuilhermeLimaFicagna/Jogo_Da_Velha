@@ -1,8 +1,8 @@
-﻿/* 
+/* 
 Grupo:
-  —  Eduardo Lopes Barros dos Santos - RA: 2025105015
-  —  Guilherme de Lima Ficagna - RA: 2025105145
-  —  Cleberson Cesar Bueno dos Santos - RA: 2025105040
+ —  Eduardo Lopes Barros dos Santos - RA: 2025105015
+ —  Guilherme de Lima Ficagna - RA: 2025105145
+ —  Cleberson Cesar Bueno dos Santos - RA: 2025105040
 */
 
 // Importações do código
@@ -108,20 +108,8 @@ while (true)
                 ranking.Add(segundoJogador, 0);
             }
         }
-      
-        // Printando a matriz
-        for (int l = 0; l < matriz.GetLength(0); l++)
-        {
-            Console.WriteLine("  ___    ___    ___");
-            for (int c = 0; c < matriz.GetLength(1); c++)
-            {
-                Console.Write(" | " + matriz[l, c] + " | ");
-                //Thread.Sleep(50); // só para efeito visual
-            }
-            Console.WriteLine();
-        }
-        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
-    
+
+
         // Método usado para ver de quem é a vez
         int vezJogador = 0;
         // Lógica para voltar ao menu ou continuar jogando
@@ -133,10 +121,36 @@ while (true)
             // Fala de quem é a vez
             if (vezJogador == 0)
             {
+                // Printando a matriz
+                for (int l = 0; l < matriz.GetLength(0); l++)
+                {
+                    Console.WriteLine("  ___    ___    ___");
+                    for (int c = 0; c < matriz.GetLength(1); c++)
+                    {
+                        Console.Write(" | " + matriz[l, c] + " | ");
+                        //Thread.Sleep(50); // só para efeito visual
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
                 Console.WriteLine("Vez do Jogador: " + primeiroJogador);
             }
             else
             {
+                // Printando a matriz
+                for (int l = 0; l < matriz.GetLength(0); l++)
+                {
+                    Console.WriteLine("  ___    ___    ___");
+                    for (int c = 0; c < matriz.GetLength(1); c++)
+                    {
+                        Console.Write(" | " + matriz[l, c] + " | ");
+                        //Thread.Sleep(50); // só para efeito visual
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
                 Console.WriteLine("Vez do Jogador: " + segundoJogador);
             }
 
@@ -362,19 +376,6 @@ while (true)
                 }
                 contagemRodada++;
             }
-            
-            // Printando a matriz
-            for (int l = 0; l < matriz.GetLength(0); l++)
-            {
-                Console.WriteLine("  ___    ___    ___");
-                for (int c = 0; c < matriz.GetLength(1); c++)
-                {
-                    Console.Write(" | " + matriz[l, c] + " | ");
-                    //Thread.Sleep(50); // só para efeito visual
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
             /*
             Para poder saber se o "jogador X" ou o "jogador O" fez um ponto podemos usar if e else para analisar os 8 posiveis casos de pontuação, sendo eles:
