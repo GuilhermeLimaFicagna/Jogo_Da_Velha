@@ -1397,9 +1397,57 @@ while (true)
         }
     }
 
-    //Jogador x Máquina (montar código)
+    //Jogador x Máquina 
     else
     {
-        Console.WriteLine("Em Construção!");
+        // Começo do jogo de entre Jogador x maquina
+
+        Console.WriteLine("JOGO DA VELHA ENTRE JOGADOR E MAQUINA");
+
+        // Método usado para ver de quem é a vez
+        int vezJogador = 0;
+
+        // Lógica para escolher se vai ser X ou O
+        string scannerxOUo;
+
+        Console.Write("Escolha entre ser 'X' ou 'O' (1 para X ou 2 para O)");
+        scannerxOUo = Console.ReadLine();
+        if (scannerxOUo == "1")
+        {
+            // O jogador começa sendo o "X"
+        }
+        else
+        {
+            // A maquina começa sendo o X
+            vezJogador = 1;
+        }
+
+        // Jogador
+        String primeiroJogador = "";
+
+        if (primeiroJogador == "")
+        {
+            string scannerNome;
+            // Entrada primeiro jogador
+            Console.Write("Digite o nome do primeiro jogador: ");
+            scannerNome = Console.ReadLine();
+            primeiroJogador = scannerNome;
+
+            // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
+            if (ranking.ContainsKey(primeiroJogador))
+            {
+                Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
+                Console.WriteLine();
+            }
+            else
+            {
+                ranking.Add(primeiroJogador, 0);
+            }
+        }
+
+        // Lógica para voltar ao menu ou continuar jogando
+        string scannerDecision;
+        bool vencedor = false;
+        int contagemRodada = 0;
     }
 }
