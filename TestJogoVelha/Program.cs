@@ -1,4 +1,4 @@
-/* 
+﻿/* 
 Grupo:
  —  Eduardo Lopes Barros dos Santos - RA: 2025105015
  —  Guilherme de Lima Ficagna - RA: 2025105145
@@ -1404,50 +1404,127 @@ while (true)
 
         Console.WriteLine("JOGO DA VELHA ENTRE JOGADOR E MAQUINA");
 
-        // Método usado para ver de quem é a vez
-        int vezJogador = 0;
+        Console.WriteLine("Digite a dificuldade:");
+        Console.Write("Fácil (1) — Difícil (2): ");
+        string scannerDificuldade = Console.ReadLine();
 
-        // Lógica para escolher se vai ser X ou O
-        string scannerxOUo;
-
-        Console.Write("Escolha entre ser 'X' ou 'O' (1 para X ou 2 para O)");
-        scannerxOUo = Console.ReadLine();
-        if (scannerxOUo == "1")
+        if (scannerDificuldade == "1")  //  Dificuldade Fácil
         {
-            // O jogador começa sendo o "X"
-        }
-        else
-        {
-            // A maquina começa sendo o X
-            vezJogador = 1;
-        }
+            // Método usado para ver de quem é a vez
+            int vezJogador = 0;
 
-        // Jogador
-        String primeiroJogador = "";
+            // Lógica para escolher se vai ser X ou O
+            string scannerxOUo;
 
-        if (primeiroJogador == "")
-        {
-            string scannerNome;
-            // Entrada primeiro jogador
-            Console.Write("Digite o nome do primeiro jogador: ");
-            scannerNome = Console.ReadLine();
-            primeiroJogador = scannerNome;
-
-            // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
-            if (ranking.ContainsKey(primeiroJogador))
+            Console.Write("Escolha entre ser 'X' ou 'O' (1 para X ou 2 para O): ");
+            scannerxOUo = Console.ReadLine();
+            if (scannerxOUo == "1")
             {
-                Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
-                Console.WriteLine();
+                // O jogador começa sendo o "X"
             }
             else
             {
-                ranking.Add(primeiroJogador, 0);
+                // A maquina começa sendo o X
+                vezJogador = 1;
+            }
+
+            // Jogador
+            String primeiroJogador = "";
+
+            if (primeiroJogador == "")
+            {
+                string scannerNome;
+                // Entrada primeiro jogador
+                Console.Write("Digite o nome do jogador: ");
+                scannerNome = Console.ReadLine();
+                primeiroJogador = scannerNome;
+
+                // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
+                if (ranking.ContainsKey(primeiroJogador))
+                {
+                    Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    ranking.Add(primeiroJogador, 0);
+                }
+            }
+
+            // Lógica para voltar ao menu ou continuar jogando
+            string scannerDecision;
+            bool vencedor = false;
+            int contagemRodada = 0;
+            while (!vencedor || contagemRodada > 8)
+            {
+                // Fala de quem é a vez
+                if (vezJogador == 0)
+                {
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
+                    {
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
+                        {
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
+                    Console.WriteLine("Vez do Jogador: " + primeiroJogador);
+
+
+                }
+                else
+                {
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
+                    {
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
+                        {
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
+                    Console.WriteLine("Vez da Máquina");
+                }
+
+                // Entrada de dados dos jogadores para a jogada.
+                String scannerJogada;
+                Console.Write("Digite um número de 1 a 9: ");
+                scannerJogada = Console.ReadLine();
+                string jogadaDoJogador = scannerJogada; // Jogando scanner dentro da variavel.
+
+                // Teste lógico Para ver onde vai a pessa. Támbem com verificação de número fora dos valores estipulados.
+
+                // verifica se não é número
+                if (jogadaDoJogador.Any(char.IsLetter))
+                {
+                    Console.WriteLine("Não é Número.");
+                    continue;
+                }
+
+                // Verifica se está entre 1 e 9 
+                int verifica = Convert.ToInt32(jogadaDoJogador);
+                if (verifica < 1 || verifica > 9)
+                {
+                    Console.WriteLine("Número invalido.");
+                    continue;
+                }
             }
         }
+        else //Modo Dificil
+        {
 
-        // Lógica para voltar ao menu ou continuar jogando
-        string scannerDecision;
-        bool vencedor = false;
-        int contagemRodada = 0;
+            Console.WriteLine("Em Construção!");
+
+        }
+
     }
 }
