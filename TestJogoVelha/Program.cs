@@ -1410,22 +1410,17 @@ while (true)
 
         if (scannerDificuldade == "1")  //  Dificuldade Fácil
         {
-            // Método usado para ver de quem é a vez
-            int vezJogador = 0;
-
             // Lógica para escolher se vai ser X ou O
             string scannerxOUo;
-
             Console.Write("Escolha entre ser 'X' ou 'O' (1 para X ou 2 para O): ");
             scannerxOUo = Console.ReadLine();
             if (scannerxOUo == "1")
             {
-                // O jogador começa sendo o "X"
+                scannerxOUo = "X";
             }
             else
             {
-                // A maquina começa sendo o X
-                vezJogador = 1;
+                scannerxOUo = "O";
             }
 
             // Jogador
@@ -1450,7 +1445,8 @@ while (true)
                     ranking.Add(primeiroJogador, 0);
                 }
             }
-
+            // Método usado para ver de quem é a vez
+            int vezJogador = 0;
             // Lógica para voltar ao menu ou continuar jogando
             string scannerDecision;
             bool vencedor = false;
@@ -1458,7 +1454,7 @@ while (true)
             while (!vencedor || contagemRodada > 8)
             {
                 // Fala de quem é a vez
-                if (vezJogador == 0)
+                if (vezJogador == 0 )
                 {
                     // Printando a matriz
                     for (int l = 0; l < matriz.GetLength(0); l++)
@@ -1495,7 +1491,7 @@ while (true)
                     Console.WriteLine("Vez da Máquina");
                 }
 
-                // Entrada de dados dos jogadores para a jogada.
+                // Entrada de dados do jogador para a jogada.
                 String scannerJogada;
                 Console.Write("Digite um número de 1 a 9: ");
                 scannerJogada = Console.ReadLine();
@@ -1516,6 +1512,45 @@ while (true)
                 {
                     Console.WriteLine("Número invalido.");
                     continue;
+                }
+
+                // Coloca a peça no determinado lugar do tabuleiro
+                if (jogadaDoJogador == "1")
+                {
+                    // Verificação da casa no tabuleiro
+                    if (matriz[0, 0] != "1")
+                    {
+                        Console.WriteLine("Um jogador ja marcou está casa");
+                        continue;
+                    }
+                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                    if (vezJogador == 0)
+                    {
+                        if (scannerxOUo == "X")
+                        {
+                            matriz[0, 0] = "X";
+                            vezJogador++;
+                        }
+                        else
+                        {
+                            matriz[0, 0] = "O";
+                            vezJogador++;
+                        }
+                    }
+                    else
+                    {
+                        if (scannerxOUo == "X")
+                        {
+                            matriz[0, 0] = "O";
+                            vezJogador--;
+                        }
+                        else
+                        {
+                            matriz[0, 0] = "X";
+                            vezJogador--;
+                        }
+                    }
+                    contagemRodada++;
                 }
             }
         }
