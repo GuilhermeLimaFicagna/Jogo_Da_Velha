@@ -9,6 +9,38 @@ Grupo:
 using System.Threading;
 using System.Linq;
 
+
+//Teste Lógica Bot - PvM
+int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9};
+bool vezBot = false; 
+int contadorBotValor = 3;
+
+while (!vezBot)
+{
+    Random gerador = new Random();
+    int casaAleatoria = gerador.Next(1, verificaArrayBot.Length + 1);
+
+    if (verificaArrayBot[0] != 0 || verificaArrayBot[1] != 0 || verificaArrayBot[2] != 0 || verificaArrayBot[3] != 0 || verificaArrayBot[4] != 0 || verificaArrayBot[5] != 0 || verificaArrayBot[6] != 0 || verificaArrayBot[7] != 0 || verificaArrayBot[8] != 0)
+    {
+    Console.WriteLine("O número gerado foi: " + casaAleatoria);
+        if (verificaArrayBot.Contains(casaAleatoria))
+        {
+            Console.WriteLine(verificaArrayBot[casaAleatoria - 1]);
+            int posicaoArrayBot = Array.IndexOf(verificaArrayBot, casaAleatoria);
+            verificaArrayBot[posicaoArrayBot] = 0;
+            Console.WriteLine(verificaArrayBot[posicaoArrayBot]);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Todos os números foram sorteados!");
+        vezBot = true;
+    }
+    
+}
+;
+
+
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
 // Númerando a Matriz
@@ -32,7 +64,7 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
 
 
 // Começo do menu
-while (true)
+while (false)
 {
     Console.WriteLine("JOGO DA VELHA EM C#");
     Console.WriteLine();
@@ -1454,7 +1486,7 @@ while (true)
             while (!vencedor || contagemRodada > 8)
             {
                 // Fala de quem é a vez
-                if (vezJogador == 0 )
+                if (vezJogador == 0)
                 {
                     // Printando a matriz
                     for (int l = 0; l < matriz.GetLength(0); l++)
