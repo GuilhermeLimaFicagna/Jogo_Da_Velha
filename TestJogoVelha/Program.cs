@@ -1,4 +1,4 @@
-/* 
+﻿/* 
 Grupo:
  —  Eduardo Lopes Barros dos Santos - RA: 2025105015
  —  Guilherme de Lima Ficagna - RA: 2025105145
@@ -8,6 +8,24 @@ Grupo:
 // Importações do código
 using System.Threading;
 using System.Linq;
+
+//Teste Lógica Bot - PvM
+int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+List<int> numerosDisponiveis = verificaArrayBot.ToList();
+Random gerador = new Random();
+
+while (numerosDisponiveis.Count > 0)
+{
+    int index = gerador.Next(0, numerosDisponiveis.Count);
+    int sorteado = numerosDisponiveis[index];
+    Console.WriteLine("Número escolhido: " + sorteado);
+    numerosDisponiveis.RemoveAt(index);
+}
+
+Console.WriteLine("Todos os números foram sorteados!");
+Console.WriteLine(verificaArrayBot);
+
 
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
@@ -30,9 +48,8 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
     {"Velha", 0}
 };
 
-
 // Começo do menu
-while (true)
+while (false)
 {
     Console.WriteLine("JOGO DA VELHA EM C#");
     Console.WriteLine();
