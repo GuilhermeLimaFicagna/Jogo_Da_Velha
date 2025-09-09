@@ -9,23 +9,6 @@ Grupo:
 using System.Threading;
 using System.Linq;
 
-//Teste Lógica Bot - PvM
-int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-List<int> numerosDisponiveis = verificaArrayBot.ToList();
-Random gerador = new Random();
-
-while (numerosDisponiveis.Count > 0)
-{
-    int index = gerador.Next(0, numerosDisponiveis.Count);
-    int sorteado = numerosDisponiveis[index];
-    Console.WriteLine("Número escolhido: " + sorteado);
-    numerosDisponiveis.RemoveAt(index);
-}
-
-Console.WriteLine("Todos os números foram sorteados!");
-
-
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
 // Númerando a Matriz
@@ -48,7 +31,7 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
 };
 
 // Começo do menu
-while (false)
+while (true)
 {
     Console.WriteLine("JOGO DA VELHA EM C#");
     Console.WriteLine();
@@ -1413,9 +1396,57 @@ while (false)
         }
     }
 
-    //Jogador x Máquina (montar código)
+    //Jogador x Máquina
     else
     {
-        Console.WriteLine("Em Construção!");
+        //Teste Lógica Bot - PvM
+        int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        List<int> numerosDisponiveis = verificaArrayBot.ToList();
+        Random gerador = new Random();
+
+        Console.WriteLine("Modo Jogador x Bot");
+
+        while (numerosDisponiveis.Count > 0)
+        {
+            Console.WriteLine("Escolha um número de 1 a 9: ");
+            String entrada = Console.ReadLine();
+
+            if (int.TryParse(entrada, out int userChoose))
+            {
+                if (numerosDisponiveis.Contains(userChoose))
+                {
+                    numerosDisponiveis.Remove(userChoose);
+                    Console.WriteLine("Você escolheu o número: " + userChoose);
+                }
+                else
+                {
+                    Console.WriteLine("Número Inválido ou já escolhido!");
+                    continue;
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("Digite apenas números!");
+                continue;
+            }
+
+            if (numerosDisponiveis.Count == 0)
+            {
+                break;
+            }
+
+            int index = gerador.Next(0, numerosDisponiveis.Count);
+            int vezBot = numerosDisponiveis[index];
+            numerosDisponiveis.RemoveAt(index);
+
+            Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
+
+            Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("Todos os números foram sorteados!");
     }
 }
