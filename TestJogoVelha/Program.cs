@@ -24,7 +24,6 @@ while (numerosDisponiveis.Count > 0)
 }
 
 Console.WriteLine("Todos os números foram sorteados!");
-Console.WriteLine(verificaArrayBot);
 
 
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
