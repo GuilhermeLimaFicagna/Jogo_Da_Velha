@@ -1404,17 +1404,13 @@ while (true)
 
         List<int> numerosDisponiveis = verificaArrayBot.ToList();
         Random gerador = new Random();
+        //Adicionar bool vencedor = false;
 
         Console.WriteLine("Modo Jogador x Bot");
+        System.Console.WriteLine("Digite o seu nome: ");
 
         while (numerosDisponiveis.Count > 0)
         {
-            //Condição do fim de jogo (adicionado no inicio pois estava com um bug antes)
-            if (numerosDisponiveis.Count == 0)
-            {
-                Console.WriteLine("Fim de Jogo!");
-                break;
-            }
             // Printando a matriz
             for (int l = 0; l < matriz.GetLength(0); l++)
             {
@@ -1454,9 +1450,16 @@ while (true)
             //Pega o valor gerado do Random e pega o mesmo valor na lista
             int index = gerador.Next(0, numerosDisponiveis.Count);
             //Vez do bot é dada pelos números disponíveis
-            int vezBot = numerosDisponiveis[index];
+            int vezBot = 0;
+            if (!(numerosDisponiveis.Count == 0))
+            {
+                vezBot = numerosDisponiveis[index];
+            }
             //Remove o valor da lista
-            numerosDisponiveis.RemoveAt(index);
+            if (numerosDisponiveis.Count > 0)
+            {
+                numerosDisponiveis.RemoveAt(index);
+            }
             //Conversão de variavel para melhor uso na função
             String jogadaBot = Convert.ToString(vezBot);
 
@@ -1640,13 +1643,137 @@ while (true)
                 }
             }
 
+            // Primeiro caso da linha(1,2 e 3)
+            if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
+            {
+                if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é o jogador!");
+
+                    // Soma pontuação no ranking
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+
+                    // Soma pontuação no ranking
+                    if (segundoJogador == "O")
+                    {
+                        ranking["O"] += 1;
+                    }
+                    else
+                    {
+                        ranking[segundoJogador] += 1;
+                        ranking["O"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
 
             Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
             Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
             Console.WriteLine();
         }
-
-        Console.WriteLine("Todos os números foram sorteados!");
+        //Condição do fim de jogo (adicionado no inicio pois estava com um bug antes)
+        if (numerosDisponiveis.Count == 0)
+        {
+            Console.WriteLine("Fim de Jogo!");
+            break;
+        }
     }
 
     else
