@@ -26,7 +26,7 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
 {
     {"X", 0},
     {"O", 0},
-    {"Maquina", 0 },
+    {"Bot", 0 },
     {"Velha", 0}
 };
 
@@ -57,8 +57,8 @@ while (true)
         break;
     }
 
-    //Inclusão da opção de escolher o modo de jogo, sendo 1 para Jogador x Jogador e 2 para Jogador x Máquina
-    Console.Write("Selecione 1 para dois jogadores, e 2 para jogador x máquina: ");
+    //Inclusão da opção de escolher o modo de jogo, sendo 1 para Jogador x Jogador e 2 para Jogador x Bot
+    Console.Write("Selecione 1 para dois jogadores, e 2 para jogador x Bot: ");
     string op1 = Console.ReadLine();
 
     //Jogador x Jogador
@@ -1396,7 +1396,7 @@ while (true)
         }
     }
 
-    //Jogador x Máquina
+    //Jogador x Bot
     else if (op1 == "2")
     {
         //Teste Lógica Bot - PvM
@@ -1407,8 +1407,33 @@ while (true)
         //Adicionar bool vencedor = false;
 
         Console.WriteLine("Modo Jogador x Bot");
-        System.Console.WriteLine("Digite o seu nome: ");
+        String nomeJogador = "";
 
+        if (nomeJogador == "")
+        {
+            string scannerNome;
+            // Entrada primeiro jogador
+            Console.Write("Digite o nome do jogador: ");
+            scannerNome = Console.ReadLine();
+            nomeJogador = scannerNome;
+
+            // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
+            if (ranking.ContainsKey(nomeJogador))
+            {
+                Console.WriteLine($"Bem vindo novamente {nomeJogador}. Você tem {ranking[nomeJogador]} vitórias");
+                Console.WriteLine();
+            }
+            else
+            {
+                ranking.Add(nomeJogador, 0);
+            }
+        }
+        // Método usado para ver de quem é a vez
+        int vezJogador = 0;
+        // Lógica para voltar ao menu ou continuar jogando
+        string scannerDecision;
+        bool vencedor = false;
+        int contagemRodada = 0;
         while (numerosDisponiveis.Count > 0)
         {
             // Printando a matriz
@@ -1648,16 +1673,16 @@ while (true)
             {
                 if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
                 {
-                    Console.WriteLine("O vencedor é o jogador!");
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
 
                     // Soma pontuação no ranking
-                    if (primeiroJogador == "X")
+                    if (nomeJogador == "X")
                     {
                         ranking["X"] += 1;
                     }
                     else
                     {
-                        ranking[primeiroJogador] += 1;
+                        ranking[nomeJogador] += 1;
                         ranking["X"] += 1;
                     }
 
@@ -1683,6 +1708,8 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
@@ -1706,18 +1733,12 @@ while (true)
                 }
                 else
                 {
-                    Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
+                    Console.WriteLine("O vencedor é o Bot!");
 
                     // Soma pontuação no ranking
-                    if (segundoJogador == "O")
-                    {
-                        ranking["O"] += 1;
-                    }
-                    else
-                    {
-                        ranking[segundoJogador] += 1;
-                        ranking["O"] += 1;
-                    }
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
 
                     // Printa o ranking com os jogadores
                     Console.WriteLine("RANKING");
@@ -1741,6 +1762,8 @@ while (true)
                                 matriz[l, c] = Convert.ToString(n += 1);
                             }
                         }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         continue;
