@@ -1397,7 +1397,7 @@ while (true)
     }
 
     //Jogador x Máquina
-    else
+    else if (op1 == "2")
     {
         //Teste Lógica Bot - PvM
         int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -1409,8 +1409,25 @@ while (true)
 
         while (numerosDisponiveis.Count > 0)
         {
+            // Printando a matriz
+            for (int l = 0; l < matriz.GetLength(0); l++)
+            {
+                Console.WriteLine("  ___    ___    ___");
+                for (int c = 0; c < matriz.GetLength(1); c++)
+                {
+                    Console.Write(" | " + matriz[l, c] + " | ");
+                    //Thread.Sleep(50); // só para efeito visual
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
             Console.WriteLine("Escolha um número de 1 a 9: ");
             String entrada = Console.ReadLine();
+            String jogadaDoJogador = entrada;
+            int index = gerador.Next(0, numerosDisponiveis.Count);
+            int vezBot = numerosDisponiveis[index];
+            numerosDisponiveis.RemoveAt(index);
+            String jogadaBot = Convert.ToString(vezBot);
 
             if (int.TryParse(entrada, out int userChoose))
             {
@@ -1432,21 +1449,83 @@ while (true)
                 continue;
             }
 
+            if (jogadaDoJogador == "1" || jogadaBot == "1")
+            {
+                // Verificação da casa no tabuleiro
+                if (matriz[0, 0] != "1")
+                {
+                    Console.WriteLine("Você ou o Bot já marcou está casa");
+                    continue;
+                }
+
+                // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                if (jogadaDoJogador == "1")
+                {
+                    matriz[0, 0] = "X";
+                }
+                else if (jogadaBot == "1")
+                {
+                    matriz[0, 0] = "O";
+                }
+            }
+
+            if (jogadaDoJogador == "2" || jogadaBot == "2")
+            {
+                // Verificação da casa no tabuleiro
+                if (matriz[0, 1] != "2")
+                {
+                    Console.WriteLine("Você ou o Bot já marcou está casa");
+                    continue;
+                }
+
+                // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                if (jogadaDoJogador == "2")
+                {
+                    matriz[0, 1] = "X";
+                }
+                else if (jogadaBot == "2")
+                {
+                    matriz[0, 1] = "O";
+                }
+            }
+
+            if (jogadaDoJogador == "3" || jogadaBot == "3")
+            {
+                // Verificação da casa no tabuleiro
+                if (matriz[0, 2] != "3")
+                {
+                    Console.WriteLine("Você ou o Bot já marcou está casa");
+                    continue;
+                }
+
+                // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                if (jogadaDoJogador == "3")
+                {
+                    matriz[0, 2] = "X";
+                }
+                else if (jogadaBot == "3")
+                {
+                    matriz[0, 2] = "O";
+                }
+            }
+
             if (numerosDisponiveis.Count == 0)
             {
                 break;
             }
 
-            int index = gerador.Next(0, numerosDisponiveis.Count);
-            int vezBot = numerosDisponiveis[index];
-            numerosDisponiveis.RemoveAt(index);
 
             Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
-
             Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
             Console.WriteLine();
         }
 
         Console.WriteLine("Todos os números foram sorteados!");
+    }
+
+    else
+    {
+        Console.WriteLine("Digite um número válido!");
+        continue;
     }
 }
