@@ -1729,6 +1729,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -1782,6 +1783,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -1847,6 +1849,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -1900,6 +1903,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -1965,6 +1969,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2018,6 +2023,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -2083,6 +2089,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2136,6 +2143,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -2201,6 +2209,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2254,6 +2263,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -2319,6 +2329,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2372,6 +2383,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -2437,6 +2449,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2490,6 +2503,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
@@ -2555,6 +2569,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
                 else
@@ -2608,6 +2623,7 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
+                        break;
                     }
                 }
 
