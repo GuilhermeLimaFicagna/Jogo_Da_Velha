@@ -1434,7 +1434,7 @@ while (true)
         string scannerDecision;
         bool vencedor = false;
         int contagemRodada = 0;
-        while (numerosDisponiveis.Count > 0)
+        while (numerosDisponiveis.Count > 0 || !vencedor)
         {
             // Printando a matriz
             for (int l = 0; l < matriz.GetLength(0); l++)
@@ -1668,10 +1668,836 @@ while (true)
                 }
             }
 
-            // Primeiro caso da linha(1,2 e 3)
+            // Primeiro caso da linha(1, 2 e 3)
             if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
             {
                 if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Segundo caso da linha(4, 5 e 6)
+            if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X" || matriz[1, 0] == "O" && matriz[1, 1] == "O" && matriz[1, 2] == "O")
+            {
+                if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Terceiro caso da linha(7, 8 e 9)
+            if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X" || matriz[2, 0] == "O" && matriz[2, 1] == "O" && matriz[2, 2] == "O")
+            {
+                if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Primeiro caso da coluna(1, 4 e 7)
+            if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X" || matriz[0, 0] == "O" && matriz[1, 0] == "O" && matriz[2, 0] == "O")
+            {
+                if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Segundo caso da coluna(2, 5 e 8)
+            if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X" || matriz[0, 1] == "O" && matriz[1, 1] == "O" && matriz[2, 1] == "O")
+            {
+                if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Terceiro caso da coluna(3, 6 e 9)
+            if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X" || matriz[0, 2] == "O" && matriz[1, 2] == "O" && matriz[2, 2] == "O")
+            {
+                if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Primeiro caso da diagonal(1, 5 e 9)
+            if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X" || matriz[0, 0] == "O" && matriz[1, 1] == "O" && matriz[2, 2] == "O")
+            {
+                if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                {
+                    Console.WriteLine("O vencedor é " + nomeJogador + "!");
+
+                    // Soma pontuação no ranking
+                    if (nomeJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[nomeJogador] += 1;
+                        ranking["X"] += 1;
+                    }
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else
+                    // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O vencedor é o Bot!");
+
+                    // Soma pontuação no ranking
+                    ranking["Bot"] += 1;
+                    ranking["O"] += 1;
+
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    // Lógica que pergunta se quer ou não continuar
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        //Resetar a lista (reiniciar game)
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+
+            }
+            // Segundo caso da diagonal(3, 5 e 7)
+            if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X" || matriz[0, 2] == "O" && matriz[1, 1] == "O" && matriz[2, 0] == "O")
+            {
+                if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
                 {
                     Console.WriteLine("O vencedor é " + nomeJogador + "!");
 
@@ -1791,7 +2617,7 @@ while (true)
             Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
             Console.WriteLine();
         }
-        //Condição do fim de jogo (adicionado no inicio pois estava com um bug antes)
+        //Condição do fim de jogo (adicionado no fim pois estava com um bug antes)
         if (numerosDisponiveis.Count == 0)
         {
             Console.WriteLine("Fim de Jogo!");
