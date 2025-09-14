@@ -1783,7 +1783,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -1902,7 +1901,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2021,7 +2019,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2140,7 +2137,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2259,7 +2255,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2378,7 +2373,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2497,7 +2491,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
@@ -2616,12 +2609,10 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
 
             }
-
             Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
             Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
             Console.WriteLine();
