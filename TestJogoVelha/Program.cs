@@ -1400,9 +1400,10 @@ while (true)
     else if (op1 == "2")
     {
         //Teste Lógica Bot - PvM
-        //int[] verificaArrayBot = ;
 
-        List<int> numerosDisponiveis = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+        int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; ;
+
+        List<int> numerosDisponiveis = verificaArrayBot.ToList();
         Random gerador = new Random();
         //Adicionar bool vencedor = false;
 
@@ -1729,7 +1730,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        //break;
                     }
                 }
                 else
@@ -1849,7 +1849,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -1969,7 +1968,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -2089,7 +2087,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -2209,7 +2206,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -2329,7 +2325,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -2449,7 +2444,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
@@ -2569,7 +2563,6 @@ while (true)
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
                         vencedor = true;
-                        break;
                     }
                 }
                 else
