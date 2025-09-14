@@ -1445,7 +1445,7 @@ while (true)
             string scannerDecision;
             bool vencedor = false;
             int contagemRodada = 0;
-            while (!vencedor || contagemRodada < 8)
+            while (!vencedor || contagemRodada > 8)
             {
                 // Printando a matriz
                 for (int l = 0; l < matriz.GetLength(0); l++)
