@@ -1408,7 +1408,7 @@ while (true)
         string scannerDificuldade = Console.ReadLine();
         // Modo Facíl
         if (scannerDificuldade == "1")
-        { 
+        {
             //Teste Lógica Bot - PvM
 
             int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; ;
@@ -1445,7 +1445,7 @@ while (true)
             string scannerDecision;
             bool vencedor = false;
             int contagemRodada = 0;
-            while (numerosDisponiveis.Count > 0 && !vencedor)
+            while (!vencedor || contagemRodada < 8)
             {
                 // Printando a matriz
                 for (int l = 0; l < matriz.GetLength(0); l++)
@@ -1512,10 +1512,12 @@ while (true)
                     if (jogadaDoJogador == "1")
                     {
                         matriz[0, 0] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "1")
                     {
                         matriz[0, 0] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1532,10 +1534,12 @@ while (true)
                     if (jogadaDoJogador == "2")
                     {
                         matriz[0, 1] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "2")
                     {
                         matriz[0, 1] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1552,10 +1556,12 @@ while (true)
                     if (jogadaDoJogador == "3")
                     {
                         matriz[0, 2] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "3")
                     {
                         matriz[0, 2] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1572,10 +1578,12 @@ while (true)
                     if (jogadaDoJogador == "4")
                     {
                         matriz[1, 0] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "4")
                     {
                         matriz[1, 0] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1592,10 +1600,12 @@ while (true)
                     if (jogadaDoJogador == "5")
                     {
                         matriz[1, 1] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "5")
                     {
                         matriz[1, 1] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1612,10 +1622,12 @@ while (true)
                     if (jogadaDoJogador == "6")
                     {
                         matriz[1, 2] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "6")
                     {
                         matriz[1, 2] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1632,10 +1644,12 @@ while (true)
                     if (jogadaDoJogador == "7")
                     {
                         matriz[2, 0] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "7")
                     {
                         matriz[2, 0] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1652,10 +1666,12 @@ while (true)
                     if (jogadaDoJogador == "8")
                     {
                         matriz[2, 1] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "8")
                     {
                         matriz[2, 1] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -1672,10 +1688,12 @@ while (true)
                     if (jogadaDoJogador == "9")
                     {
                         matriz[2, 2] = "X";
+                        contagemRodada++;
                     }
                     else if (jogadaBot == "9")
                     {
                         matriz[2, 2] = "O";
+                        contagemRodada++;
                     }
                 }
 
@@ -2622,6 +2640,57 @@ while (true)
                         }
                     }
 
+                }
+                // Caso de velha
+                if (contagemRodada > 8)
+                {
+                    Console.WriteLine("O jogo terminou em velha!");
+
+                    // Soma pontuação no ranking
+                    ranking["Velha"] += 1;
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
                 }
                 Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
                 Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
