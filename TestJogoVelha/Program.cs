@@ -8,6 +8,7 @@ Grupo:
 // Importações do código
 using System.Threading;
 using System.Linq;
+using Spectre.Console;
 
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
@@ -29,6 +30,18 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
     {"Bot", 0 },
     {"Velha", 0}
 };
+
+var chart = new BarChart()
+    .Width(60)
+    .Label("[bold yellow]Vitórias por Jogador[/]")
+    .CenterLabel();
+
+chart.AddItem("X", ranking["X"], Color.Green);
+chart.AddItem("O", ranking["O"], Color.Red);
+chart.AddItem("Bot", ranking["Bot"], Color.Blue);
+chart.AddItem("Velha", ranking["Velha"], Color.Grey);
+
+AnsiConsole.Write(chart);
 
 // Começo do menu
 while (true)
