@@ -22,8 +22,7 @@ for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantid
     }
 }
 
-// Lógica - Ranking with dicionary
-Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nome. Value guarda vitórias
+Dictionary<string, int> ranking = new Dictionary<string, int>()
 {
     {"X", 0},
     {"O", 0},
@@ -31,17 +30,27 @@ Dictionary<string, int> ranking = new Dictionary<string, int>() //Key guarda nom
     {"Velha", 0}
 };
 
-var chart = new BarChart()
-    .Width(60)
-    .Label("[bold yellow]Vitórias por Jogador[/]")
-    .CenterLabel();
+void MostrarRanking()
+{
+    Console.Clear(); // limpa tela antes de mostrar
+    var chart = new BarChart()
+        .Width(60)
+        .Label("[bold yellow]Vitórias por Jogador[/]")
+        .CenterLabel();
 
-chart.AddItem("X", ranking["X"], Color.Green);
-chart.AddItem("O", ranking["O"], Color.Red);
-chart.AddItem("Bot", ranking["Bot"], Color.Blue);
-chart.AddItem("Velha", ranking["Velha"], Color.Grey);
+    List<Color> cores = new List<Color> { Color.Green, Color.Red, Color.Blue, Color.Grey };
+    int i = 0;
 
-AnsiConsole.Write(chart);
+    foreach (var kvp in ranking)
+    {
+        chart.AddItem(kvp.Key, kvp.Value, cores[i % cores.Count]);
+        i++;
+    }
+
+    AnsiConsole.Write(chart);
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey(); // espera o usuário ler o ranking antes de continuar
+}
 
 // Começo do menu
 while (true)
@@ -407,16 +416,20 @@ while (true)
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
 
-                    // Soma pontuação no ranking
-                    if (primeiroJogador == "X")
-                    {
-                        ranking["X"] += 1;
-                    }
-                    else
-                    {
-                        ranking[primeiroJogador] += 1;
-                        ranking["X"] += 1;
-                    }
+                // Atualiza pontuação
+                if (primeiroJogador == "X")
+                {
+                    ranking["X"] += 1;
+                }
+                else
+                {
+                    ranking[primeiroJogador] += 1;
+                    ranking["X"] += 1;
+                }
+
+                // Mostra o ranking imediatamente
+                MostrarRanking();
+
 
                     // Printa o ranking com os jogadores
                     Console.WriteLine("RANKING");
