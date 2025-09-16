@@ -393,22 +393,18 @@ while (true)
                 if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -467,22 +463,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -2963,9 +2955,10 @@ while (true)
         // Modo difícil
         else
         {
+            Console.WriteLine("test");
             //Teste Lógica Bot - PvM
 
-            int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; ;
+            int[] verificaArrayBot = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             List<int> numerosDisponiveis = verificaArrayBot.ToList();
             Random gerador = new Random();
@@ -2999,7 +2992,7 @@ while (true)
             string scannerDecision;
             bool vencedor = false;
             int contagemRodada = 0;
-            while (numerosDisponiveis.Count > 0 && !vencedor)
+            while (!vencedor || contagemRodada > 8)
             {
                 // Printando a matriz
                 for (int l = 0; l < matriz.GetLength(0); l++)
@@ -3013,6 +3006,8 @@ while (true)
                     Console.WriteLine();
                 }
                 Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+
+                int verificacao = 0; // verificação para não bugar a jogada do jogador
                 Console.WriteLine("Escolha um número de 1 a 9: ");
                 String entrada = Console.ReadLine();
                 String jogadaDoJogador = entrada;
@@ -3037,202 +3032,238 @@ while (true)
                     continue;
                 }
 
-                //Pega o valor gerado do Random e pega o mesmo valor na lista
-                int index = gerador.Next(0, numerosDisponiveis.Count);
-                //Vez do bot é dada pelos números disponíveis
                 int vezBot = 0;
-                if (!(numerosDisponiveis.Count == 0))
+                int[] numBot = { 0, 0 };
+                // Repete a jogada do bot 2x
+                for (int i = 0; i < 2; i++)
                 {
-                    vezBot = numerosDisponiveis[index];
+                    //Pega o valor gerado do Random e pega o mesmo valor na lista
+                    int index = gerador.Next(0, numerosDisponiveis.Count);
+                    //Vez do bot é dada pelos números disponíveis
+                    vezBot = 0;
+                    if (!(numerosDisponiveis.Count == 0))
+                    {
+                        vezBot = numerosDisponiveis[index];
+                        numBot[i] = vezBot;
+                    }
+                    //Remove o valor da lista
+                    if (numerosDisponiveis.Count > 0)
+                    {
+                        numerosDisponiveis.RemoveAt(index);
+                    }
+                    //Conversão de variavel para melhor uso na função
+                    String jogadaBot = Convert.ToString(vezBot);
+
+                    // verificação para não bugar
+                    if (verificacao == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        jogadaDoJogador = "0";
+                    }
+
+                    if (jogadaDoJogador == "1" || jogadaBot == "1")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[0, 0] != "1")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "1")
+                        {
+                            matriz[0, 0] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "1")
+                        {
+                            matriz[0, 0] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "2" || jogadaBot == "2")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[0, 1] != "2")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "2")
+                        {
+                            matriz[0, 1] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "2")
+                        {
+                            matriz[0, 1] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "3" || jogadaBot == "3")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[0, 2] != "3")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "3")
+                        {
+                            matriz[0, 2] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "3")
+                        {
+                            matriz[0, 2] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "4" || jogadaBot == "4")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[1, 0] != "4")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "4")
+                        {
+                            matriz[1, 0] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "4")
+                        {
+                            matriz[1, 0] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "5" || jogadaBot == "5")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[1, 1] != "5")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "5")
+                        {
+                            matriz[1, 1] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "5")
+                        {
+                            matriz[1, 1] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "6" || jogadaBot == "6")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[1, 2] != "6")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "6")
+                        {
+                            matriz[1, 2] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "6")
+                        {
+                            matriz[1, 2] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "7" || jogadaBot == "7")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[2, 0] != "7")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "7")
+                        {
+                            matriz[2, 0] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "7")
+                        {
+                            matriz[2, 0] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "8" || jogadaBot == "8")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[2, 1] != "8")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "8")
+                        {
+                            matriz[2, 1] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "8")
+                        {
+                            matriz[2, 1] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    if (jogadaDoJogador == "9" || jogadaBot == "9")
+                    {
+                        // Verificação da casa no tabuleiro
+                        if (matriz[2, 2] != "9")
+                        {
+                            Console.WriteLine("Você ou o Bot já marcou está casa");
+                            continue;
+                        }
+
+                        // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
+                        if (jogadaDoJogador == "9")
+                        {
+                            matriz[2, 2] = "X";
+                            contagemRodada++;
+                        }
+                        if (jogadaBot == "9")
+                        {
+                            matriz[2, 2] = "O";
+                            contagemRodada++;
+                        }
+                    }
+
+                    verificacao = 1;  // incremento na verificação
                 }
-                //Remove o valor da lista
-                if (numerosDisponiveis.Count > 0)
-                {
-                    numerosDisponiveis.RemoveAt(index);
-                }
-                //Conversão de variavel para melhor uso na função
-                String jogadaBot = Convert.ToString(vezBot);
-
-                if (jogadaDoJogador == "1" || jogadaBot == "1")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[0, 0] != "1")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "1")
-                    {
-                        matriz[0, 0] = "X";
-                    }
-                    else if (jogadaBot == "1")
-                    {
-                        matriz[0, 0] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "2" || jogadaBot == "2")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[0, 1] != "2")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "2")
-                    {
-                        matriz[0, 1] = "X";
-                    }
-                    else if (jogadaBot == "2")
-                    {
-                        matriz[0, 1] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "3" || jogadaBot == "3")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[0, 2] != "3")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "3")
-                    {
-                        matriz[0, 2] = "X";
-                    }
-                    else if (jogadaBot == "3")
-                    {
-                        matriz[0, 2] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "4" || jogadaBot == "4")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[1, 0] != "4")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "4")
-                    {
-                        matriz[1, 0] = "X";
-                    }
-                    else if (jogadaBot == "4")
-                    {
-                        matriz[1, 0] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "5" || jogadaBot == "5")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[1, 1] != "5")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "5")
-                    {
-                        matriz[1, 1] = "X";
-                    }
-                    else if (jogadaBot == "5")
-                    {
-                        matriz[1, 1] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "6" || jogadaBot == "6")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[1, 2] != "6")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "6")
-                    {
-                        matriz[1, 2] = "X";
-                    }
-                    else if (jogadaBot == "6")
-                    {
-                        matriz[1, 2] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "7" || jogadaBot == "7")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[2, 0] != "7")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "7")
-                    {
-                        matriz[2, 0] = "X";
-                    }
-                    else if (jogadaBot == "7")
-                    {
-                        matriz[2, 0] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "8" || jogadaBot == "8")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[2, 1] != "8")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "8")
-                    {
-                        matriz[2, 1] = "X";
-                    }
-                    else if (jogadaBot == "8")
-                    {
-                        matriz[2, 1] = "O";
-                    }
-                }
-
-                if (jogadaDoJogador == "9" || jogadaBot == "9")
-                {
-                    // Verificação da casa no tabuleiro
-                    if (matriz[2, 2] != "9")
-                    {
-                        Console.WriteLine("Você ou o Bot já marcou está casa");
-                        continue;
-                    }
-
-                    // Método usado para ver de quem é a vez. Baseado na variavel vezJogador.
-                    if (jogadaDoJogador == "9")
-                    {
-                        matriz[2, 2] = "X";
-                    }
-                    else if (jogadaBot == "9")
-                    {
-                        matriz[2, 2] = "O";
-                    }
-                }
-
                 // Primeiro caso da linha(1, 2 e 3)
                 if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X" || matriz[0, 0] == "O" && matriz[0, 1] == "O" && matriz[0, 2] == "O")
                 {
@@ -4177,7 +4208,58 @@ while (true)
                     }
 
                 }
-                Console.WriteLine("Número escolhido pelo Bot: " + vezBot);
+                // Caso de velha
+                if (contagemRodada > 8)
+                {
+                    Console.WriteLine("O jogo terminou em velha!");
+
+                    // Soma pontuação no ranking
+                    ranking["Velha"] += 1;
+
+                    // Printa o ranking com os jogadores
+                    Console.WriteLine("RANKING");
+                    foreach (KeyValuePair<string, int> r in ranking)
+                    {
+                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
+                    }
+
+                    Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
+                    scannerDecision = Console.ReadLine();
+
+                    if (scannerDecision == "1") // Caso queira
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        continue;
+                    }
+                    else // Caso queira voltar ao menu
+                    {
+                        // renumerando a matriz
+                        n = 0;
+                        for (int l = 0; l < matriz.GetLength(0); l += 1) // .GetLength(0) pega a Quantidade de Linhas
+                        {
+                            for (int c = 0; c < matriz.GetLength(1); c += 1) // .GetLength(0) pega a Quantidade de Colunas
+                            {
+                                matriz[l, c] = Convert.ToString(n += 1);
+                            }
+                        }
+                        numerosDisponiveis = verificaArrayBot.ToList();
+                        Console.Clear(); // Limpa terminal
+                        contagemRodada = 0;
+                        vencedor = true;
+                    }
+                }
+                Console.WriteLine($"Número escolhido pelo Bot: {numBot[0]} e { numBot[1]}");
                 Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
                 Console.WriteLine();
             }
