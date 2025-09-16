@@ -441,6 +441,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else
@@ -511,6 +512,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -590,6 +592,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -611,22 +614,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -663,6 +662,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -690,22 +690,18 @@ while (true)
                 if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -742,6 +738,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -763,22 +760,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -815,6 +808,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -842,22 +836,18 @@ while (true)
                 if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -894,6 +884,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -915,22 +906,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -967,6 +954,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -993,22 +981,18 @@ while (true)
                 if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -1045,6 +1029,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1066,22 +1051,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -1118,6 +1099,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1144,22 +1126,18 @@ while (true)
                 if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -1196,6 +1174,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1217,22 +1196,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -1269,6 +1244,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1343,6 +1319,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1364,22 +1341,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -1416,6 +1389,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1442,22 +1416,18 @@ while (true)
                 if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
                 {
                     Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (primeiroJogador == "X")
@@ -1494,6 +1464,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1515,22 +1486,18 @@ while (true)
                 else
                 {
                     Console.WriteLine("O vencedor é o jogador: " + segundoJogador);
-                    if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
                     {
-                        Console.WriteLine("O vencedor é o jogador: " + primeiroJogador);
-                        // Printando a matriz
-                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
                         {
-                            Console.WriteLine("  ___    ___    ___");
-                            for (int c = 0; c < matriz.GetLength(1); c++)
-                            {
-                                Console.Write(" | " + matriz[l, c] + " | ");
-                                //Thread.Sleep(50); // só para efeito visual
-                            }
-                            Console.WriteLine();
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
                         }
-                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
+                        Console.WriteLine();
                     }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     if (segundoJogador == "O")
@@ -1567,6 +1534,7 @@ while (true)
                         }
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -1629,6 +1597,7 @@ while (true)
                     }
                     Console.Clear(); // Limpa terminal
                     contagemRodada = 0;
+                    vencedor = false;
                     continue;
                 }
                 else // Caso queira voltar ao menu
@@ -1958,6 +1927,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -1996,6 +1977,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2018,6 +2000,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2050,6 +2044,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2076,6 +2071,18 @@ while (true)
                     if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2114,6 +2121,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2136,6 +2144,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2168,6 +2188,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2194,6 +2215,18 @@ while (true)
                     if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2232,6 +2265,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2254,6 +2288,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2286,6 +2332,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2312,6 +2359,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2350,6 +2409,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2372,6 +2432,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2404,6 +2476,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2430,6 +2503,18 @@ while (true)
                     if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2468,6 +2553,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2490,7 +2576,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
-
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
                         ranking["O"] += 1;
@@ -2522,6 +2619,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2548,6 +2646,18 @@ while (true)
                     if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2586,6 +2696,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2608,6 +2719,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2640,6 +2763,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2666,6 +2790,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2704,6 +2840,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2726,6 +2863,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2758,6 +2907,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2784,6 +2934,18 @@ while (true)
                     if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -2822,6 +2984,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -2844,6 +3007,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -2876,6 +3051,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -2900,6 +3076,18 @@ while (true)
                 if (contagemRodada > 8)
                 {
                     Console.WriteLine("O jogo terminou em velha!");
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
+                    {
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
+                        {
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     ranking["Velha"] += 1;
@@ -2928,6 +3116,7 @@ while (true)
                         numerosDisponiveis = verificaArrayBot.ToList();
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -3270,6 +3459,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[0, 1] == "X" && matriz[0, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3308,6 +3509,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3330,6 +3532,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3362,6 +3576,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3388,6 +3603,18 @@ while (true)
                     if (matriz[1, 0] == "X" && matriz[1, 1] == "X" && matriz[1, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3426,6 +3653,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3448,6 +3676,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3480,6 +3720,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3506,6 +3747,18 @@ while (true)
                     if (matriz[2, 0] == "X" && matriz[2, 1] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3544,6 +3797,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3566,6 +3820,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3598,6 +3864,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3624,6 +3891,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[1, 0] == "X" && matriz[2, 0] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3662,6 +3941,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3684,6 +3964,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3716,6 +4008,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3742,6 +4035,18 @@ while (true)
                     if (matriz[0, 1] == "X" && matriz[1, 1] == "X" && matriz[2, 1] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3780,6 +4085,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3802,6 +4108,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3834,6 +4152,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3860,6 +4179,18 @@ while (true)
                     if (matriz[0, 2] == "X" && matriz[1, 2] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -3898,6 +4229,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -3920,6 +4252,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -3952,6 +4296,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -3978,6 +4323,18 @@ while (true)
                     if (matriz[0, 0] == "X" && matriz[1, 1] == "X" && matriz[2, 2] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -4016,6 +4373,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -4038,6 +4396,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -4070,6 +4440,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -4096,6 +4467,18 @@ while (true)
                     if (matriz[0, 2] == "X" && matriz[1, 1] == "X" && matriz[2, 0] == "X")
                     {
                         Console.WriteLine("O vencedor é " + nomeJogador + "!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         if (nomeJogador == "X")
@@ -4134,6 +4517,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else
@@ -4156,6 +4540,18 @@ while (true)
                     else
                     {
                         Console.WriteLine("O vencedor é o Bot!");
+                        // Printando a matriz
+                        for (int l = 0; l < matriz.GetLength(0); l++)
+                        {
+                            Console.WriteLine("  ___    ___    ___");
+                            for (int c = 0; c < matriz.GetLength(1); c++)
+                            {
+                                Console.Write(" | " + matriz[l, c] + " | ");
+                                //Thread.Sleep(50); // só para efeito visual
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                         // Soma pontuação no ranking
                         ranking["Bot"] += 1;
@@ -4188,6 +4584,7 @@ while (true)
                             numerosDisponiveis = verificaArrayBot.ToList();
                             Console.Clear(); // Limpa terminal
                             contagemRodada = 0;
+                            vencedor = false;
                             continue;
                         }
                         else // Caso queira voltar ao menu
@@ -4212,6 +4609,18 @@ while (true)
                 if (contagemRodada > 8)
                 {
                     Console.WriteLine("O jogo terminou em velha!");
+                    // Printando a matriz
+                    for (int l = 0; l < matriz.GetLength(0); l++)
+                    {
+                        Console.WriteLine("  ___    ___    ___");
+                        for (int c = 0; c < matriz.GetLength(1); c++)
+                        {
+                            Console.Write(" | " + matriz[l, c] + " | ");
+                            //Thread.Sleep(50); // só para efeito visual
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
                     // Soma pontuação no ranking
                     ranking["Velha"] += 1;
@@ -4240,6 +4649,7 @@ while (true)
                         numerosDisponiveis = verificaArrayBot.ToList();
                         Console.Clear(); // Limpa terminal
                         contagemRodada = 0;
+                        vencedor = false;
                         continue;
                     }
                     else // Caso queira voltar ao menu
@@ -4259,7 +4669,7 @@ while (true)
                         vencedor = true;
                     }
                 }
-                Console.WriteLine($"Número escolhido pelo Bot: {numBot[0]} e { numBot[1]}");
+                Console.WriteLine($"Número escolhido pelo Bot: {numBot[0]} e {numBot[1]}");
                 Console.WriteLine("Números restantes: " + string.Join(", ", numerosDisponiveis));
                 Console.WriteLine();
             }
