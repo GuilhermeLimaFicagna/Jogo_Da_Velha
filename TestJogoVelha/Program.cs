@@ -6,9 +6,9 @@ Grupo:
 */
 
 // Importações do código
+using Spectre.Console;
 using System.Threading;
 using System.Linq;
-using Spectre.Console;
 
 String[,] matriz = new String[3, 3]; // Matriz que ira ser o tabuleiro com as cordenadas
 
@@ -30,27 +30,51 @@ Dictionary<string, int> ranking = new Dictionary<string, int>()
     {"Velha", 0}
 };
 
-void MostrarRanking()
+Dictionary<string, Color> coresJogadores = new()
 {
-    Console.Clear(); // limpa tela antes de mostrar
+    {"X", Color.Red},
+    {"O", Color.Blue},
+    {"Bot", Color.Yellow},
+    {"Velha", Color.Grey}
+};
+
+Random random = new();
+
+// --- sua função para mostrar o ranking (sem 'static') ---
+void MostrarRanking(Dictionary<string, int> ranking, bool noMenu = false)
+{
+    if (!noMenu) Console.Clear();
+
     var chart = new BarChart()
         .Width(60)
-        .Label("[bold yellow]Vitórias por Jogador[/]")
-        .CenterLabel();
-
-    List<Color> cores = new List<Color> { Color.Green, Color.Red, Color.Blue, Color.Grey };
-    int i = 0;
+        .Label("[green]Ranking de Vitórias[/]");
 
     foreach (var kvp in ranking)
     {
-        chart.AddItem(kvp.Key, kvp.Value, cores[i % cores.Count]);
-        i++;
+        if (!coresJogadores.ContainsKey(kvp.Key))
+        {
+            coresJogadores[kvp.Key] = new Color(
+                (byte)random.Next(50, 256),
+                (byte)random.Next(50, 256),
+                (byte)random.Next(50, 256)
+            );
+        }
+
+        chart.AddItem(kvp.Key, kvp.Value, coresJogadores[kvp.Key]);
     }
 
     AnsiConsole.Write(chart);
-    Console.WriteLine("\nPressione qualquer tecla para continuar...");
-    Console.ReadKey(); // espera o usuário ler o ranking antes de continuar
+
+    if (!noMenu)
+    {
+        Console.WriteLine("\nPressione qualquer tecla para continuar...");
+        Console.ReadKey();
+        Console.Clear();
+    }
 }
+
+
+
 
 // Começo do menu
 while (true)
@@ -58,12 +82,9 @@ while (true)
     Console.WriteLine("JOGO DA VELHA EM C#");
     Console.WriteLine();
 
-    // Printa o ranking com os jogadores
-    Console.WriteLine("RANKING");
-    foreach (KeyValuePair<string, int> r in ranking)
-    {
-        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
-    }
+    //Ranking Somente em Texto (Sem o Gráfico)
+    MostrarRanking(ranking, true);
+
 
     // Opção de querer jogar ou não
     string scannerMenu;
@@ -105,13 +126,14 @@ while (true)
             // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
             if (ranking.ContainsKey(primeiroJogador))
             {
-                Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
-                Console.WriteLine();
+                Console.WriteLine($"Bem vindo novamente {primeiroJogador}!");
+                MostrarRanking(ranking, true);
             }
             else
             {
                 ranking.Add(primeiroJogador, 0);
             }
+
 
             // Entrada segundo jogador
             Console.Write("Digite o nome do segundo jogador(O): ");
@@ -121,8 +143,8 @@ while (true)
             // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
             if (ranking.ContainsKey(segundoJogador))
             {
-                Console.WriteLine($"Bem vindo novamente {segundoJogador}. Você tem {ranking[segundoJogador]} vitórias");
-                Console.WriteLine();
+                Console.WriteLine($"Bem vindo novamente {primeiroJogador}!");
+                MostrarRanking(ranking, true);
             }
             else
             {
@@ -428,19 +450,21 @@ while (true)
                     }
                     Console.WriteLine("  ¯¯¯    ¯¯¯    ¯¯¯");
 
-                // Atualiza pontuação
-                if (primeiroJogador == "X")
-                {
-                    ranking["X"] += 1;
-                }
-                else
-                {
-                    ranking[primeiroJogador] += 1;
-                    ranking["X"] += 1;
-                }
+                    // Atualiza pontuação
+                    if (primeiroJogador == "X")
+                    {
+                        ranking["X"] += 1;
+                    }
+                    else
+                    {
+                        ranking[primeiroJogador] += 1;
+                        ranking["X"] += 1;
+                    }
 
-                // Mostra o ranking imediatamente
-                MostrarRanking();
+                    // Mostra o ranking imediatamente
+                    Console.WriteLine();
+                    MostrarRanking(ranking);
+
 
 
                     // Printa o ranking com os jogadores
@@ -514,12 +538,8 @@ while (true)
                         ranking["O"] += 1;
                     }
 
-                    // Printa o ranking com os jogadores
-                    Console.WriteLine("RANKING");
-                    foreach (KeyValuePair<string, int> r in ranking)
-                    {
-                        Console.WriteLine($"JOGADOR: {r.Key}     VITÓRIAS: {r.Value}");
-                    }
+                    Console.WriteLine();
+                    MostrarRanking(ranking);
 
                     // Lógica que pergunta se quer ou não continuar
                     Console.Write("Para continuar jogando digite 1, caso não, digite 2 para voltar ao menu: ");
