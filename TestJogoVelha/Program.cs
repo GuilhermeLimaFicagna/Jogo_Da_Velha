@@ -40,7 +40,7 @@ Dictionary<string, Color> coresJogadores = new()
 
 Random random = new();
 
-// --- sua função para mostrar o ranking (sem 'static') ---
+
 void MostrarRanking(Dictionary<string, int> ranking, bool noMenu = false)
 {
     if (!noMenu) Console.Clear();
@@ -164,14 +164,32 @@ while (true)
             // Fala de quem é a vez
             if (vezJogador == 0)
             {
-                // Printando a matriz
+                // Printando a matriz com cores
                 for (int l = 0; l < matriz.GetLength(0); l++)
                 {
                     Console.WriteLine("  ___    ___    ___");
                     for (int c = 0; c < matriz.GetLength(1); c++)
                     {
-                        Console.Write(" | " + matriz[l, c] + " | ");
-                        //Thread.Sleep(50); // só para efeito visual
+                        Console.Write(" | ");
+
+                        if (matriz[l, c] == "X")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;   // X em vermelho
+                            Console.Write("X");
+                            Console.ResetColor();
+                        }
+                        else if (matriz[l, c] == "O")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;  // O em azul
+                            Console.Write("O");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            Console.Write(matriz[l, c]); // número normal
+                        }
+
+                        Console.Write(" | ");
                     }
                     Console.WriteLine();
                 }
@@ -181,14 +199,32 @@ while (true)
             }
             else
             {
-                // Printando a matriz
+                // Printando a matriz com cores
                 for (int l = 0; l < matriz.GetLength(0); l++)
                 {
                     Console.WriteLine("  ___    ___    ___");
                     for (int c = 0; c < matriz.GetLength(1); c++)
                     {
-                        Console.Write(" | " + matriz[l, c] + " | ");
-                        //Thread.Sleep(50); // só para efeito visual
+                        Console.Write(" | ");
+
+                        if (matriz[l, c] == "X")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;   // X em vermelho
+                            Console.Write("X");
+                            Console.ResetColor();
+                        }
+                        else if (matriz[l, c] == "O")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;  // O em azul
+                            Console.Write("O");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            Console.Write(matriz[l, c]); // número normal
+                        }
+
+                        Console.Write(" | ");
                     }
                     Console.WriteLine();
                 }
