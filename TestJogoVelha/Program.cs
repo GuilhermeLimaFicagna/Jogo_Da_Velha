@@ -126,7 +126,7 @@ while (true)
             // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
             if (ranking.ContainsKey(primeiroJogador))
             {
-                Console.WriteLine($"Bem vindo novamente {primeiroJogador}!");
+                Console.WriteLine($"Bem vindo novamente {primeiroJogador}. Você tem {ranking[primeiroJogador]} vitórias");
                 MostrarRanking(ranking, true);
             }
             else
@@ -143,7 +143,7 @@ while (true)
             // Nome do jogador vai para o ranking, mas antes é feio uma verificação pra ver se ja não existe
             if (ranking.ContainsKey(segundoJogador))
             {
-                Console.WriteLine($"Bem vindo novamente {segundoJogador}!");
+                Console.WriteLine($"Bem vindo novamente {segundoJogador}. Você tem {ranking[segundoJogador]} vitórias");
                 MostrarRanking(ranking, true);
             }
             else
